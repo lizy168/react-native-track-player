@@ -1,32 +1,22 @@
-# this validation workflow bypasses the standard platform-validation.yml
-# if only documentation has been modified.
-name: platform-validation
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'docs/**'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'docs/**'
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
-jobs:
-  build-android:
-    runs-on: ubuntu-latest
-      steps:
-        - run: 'echo "No build required"'
-  build-ios:
-    runs-on: ubuntu-latest
-      steps:
-        - run: 'echo "No build required"'
-  check-typescript:
-    runs-on: ubuntu-latest
-      steps:
-        - run: 'echo "No build required"'
+--- a/.github/workflows/platform-validation-skip.yml
++++ b/.github/workflows/platform-validation-skip.yml
+@@ -20,13 +20,13 @@
+ jobs:
+   build-android:
+     runs-on: ubuntu-latest
+-      steps:
+-        - run: 'echo "No build required"'
++    steps:
++      - run: 'echo "No build required"'
+   build-ios:
+     runs-on: ubuntu-latest
+-      steps:
+-        - run: 'echo "No build required"'
++    steps:
++      - run: 'echo "No build required"'
+   check-typescript:
+     runs-on: ubuntu-latest
+-      steps:
+-        - run: 'echo "No build required"'
++    steps:
++      - run: 'echo "No build required"'
